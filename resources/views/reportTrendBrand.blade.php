@@ -6,7 +6,7 @@
 @section('content')
     <!-- BEGIN PAGE HEADER-->
     <h3 class="page-title">
-        Top 3 Trend Brand
+        Trend Brand (Penjualan per Bulan)
     </h3>
     <div class="page-bar">
         <ul class="page-breadcrumb">
