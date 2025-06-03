@@ -40,17 +40,10 @@
                     <div class="modal-body">
                         @csrf
                         <div class="form-group">
-                            <label for="id"> Salesman ID </label>
-                            <input class="form-control" id="id" name="id" rows="4"
-                                placeholder="Enter your ID" aria-describedby="name"></input>
-                            <small id="name" class="form-text text-muted">Please write down ID
-                                here.</small>
-                        </div>
-                        <div class="form-group">
                             <label for="name">Salesman Name</label>
                             <input type="text" class="form-control" id="name" name="name" aria-describedby="name"
-                                placeholder="Enter your Customer Name">
-                            <small id="name" class="form-text text-muted">Please write down Customer Name here.</small>
+                                placeholder="Enter your Salesman Name">
+                            <small id="name" class="form-text text-muted">Please write down Salesman Name here.</small>
                         </div>
                         <div class="form-group">
                             <label for="Tipe">Tipe </label>

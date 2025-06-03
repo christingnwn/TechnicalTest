@@ -44,12 +44,13 @@
                 <label for="rayon_id">Rayon:</label>
                 <select name="rayon_id" class="form-control">
                     @foreach ($rayon as $r)
-                        <option value="{{ $r->id }}" {{ $r->id == $r->name ? 'selected' : '' }}>
+                        <option value="{{ $r->id }}" {{ $r->id == $salesman->rayon_id ? 'selected' : '' }}>
                             {{ $r->name }}
                         </option>
                     @endforeach
                 </select>
                 <br>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

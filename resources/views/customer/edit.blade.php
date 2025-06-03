@@ -41,7 +41,7 @@
                 <label for="rayon_id">Rayon:</label>
                 <select name="rayon_id" class="form-control">
                     @foreach ($rayon as $r)
-                        <option value="{{ $r->id }}" {{ $r->id == $r->name ? 'selected' : '' }}>
+                        <option value="{{ $r->id }}" {{ $r->id == $customer->rayon_id ? 'selected' : '' }}>
                             {{ $r->name }}
                         </option>
                     @endforeach
