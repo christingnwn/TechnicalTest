@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\RayonController;
 use App\Http\Controllers\SalesmanController;
 use App\Http\Controllers\SalesOrderController;
 use App\Models\SalesOrder;
@@ -39,3 +40,5 @@ Route::resource("/brand", BrandController::class);
 Route::resource("/salesman", SalesmanController::class);
 
 Route::resource("/salesorder", SalesOrderController::class);
+
+Route::resource("/rayon", RayonController::class);

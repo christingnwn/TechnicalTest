@@ -3,19 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rayon;
-use App\Models\Salesman;
 use Illuminate\Http\Request;
 
-class SalesmanController extends Controller
+class RayonController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $salesman = Salesman::all();
         $rayon = Rayon::all();
-        return view("salesman", compact("salesman", "rayon"));
+        return view("rayon", compact("rayon"));
     }
 
     /**
@@ -31,7 +29,7 @@ class SalesmanController extends Controller
      */
     public function store(Request $request)
     {
-        $lastId = Salesman::max('id');
+        $lastId = Rayon::max('id');
         if (!$lastId) {
             $nextId = 'S01';
         } else {
@@ -40,15 +38,16 @@ class SalesmanController extends Controller
             // Tambah 1 lalu format jadi dua digit
             $newNumber = str_pad($number + 1, 2, '0', STR_PAD_LEFT);
             // Gabungkan dengan prefix "B"
-            $nextId = 'S' . $newNumber;
+            $nextId = 'R' . $newNumber;
         }
-        $data = new Salesman();
+        $data = new Rayon();
         $data->id = $nextId;
         $data->name = $request->get('name');
-        $data->tipe = $request->get('tipe');
-        $data->rayon_id = $request->get('rayon_id');
+        $data->sales_area = $request->get('sales_area');
+        $data->regional = $request->get('regional');
         $data->save();
-        return redirect()->route("salesman.index")->with("status", "Insert successful!");
+        return redirect()->route("rayon.index")->with("status", "Insert successful!");
+
     }
 
     /**
@@ -62,30 +61,29 @@ class SalesmanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Salesman $salesman)
+    public function edit(Rayon $rayon)
     {
-        $rayon = Rayon::all();
-        return view('editsalesman', compact("salesman", "rayon"));
+        return view('editrayon', compact("rayon"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Salesman $salesman)
+    public function update(Request $request, Rayon $rayon)
     {
-        $salesman->name = $request->get('name');
-        $salesman->tipe = $request->get('tipe');
-        $salesman->rayon_id = $request->get('rayon_id');
-        $salesman->save();
-        return redirect()->route("salesman.index")->with("status", "Update successful!");
+        $rayon->name = $request->get('name');
+        $rayon->sales_area = $request->get('sales_area');
+        $rayon->regional = $request->get('regional');
+        $rayon->save();
+        return redirect()->route("rayon.index")->with("status", "Update successful!");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Salesman $salesman)
+    public function destroy(Rayon $rayon)
     {
-        $salesman->delete();
-        return redirect()->route('salesman.index')->with('status', 'Delete successful!');
+        $rayon->delete();
+        return redirect()->route('rayon.index')->with('status', 'Delete successful!');
     }
 }

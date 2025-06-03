@@ -86,6 +86,12 @@
                             <span class="title">Customer</span>
                         </a>
                     </li>
+                    <li class="@yield('menu-rayon')">
+                        <a href="/rayon">
+                            <i class="icon-map"></i>
+                            <span class="title">Rayon</span>
+                        </a>
+                    </li>
                     <li class="@yield('menu-salesman')">
                         <a href="/salesman">
                             <i class="icon-globe"></i>
