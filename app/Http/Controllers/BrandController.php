@@ -70,7 +70,6 @@ class BrandController extends Controller
     {
         $brand->name = $request->get('name');
         $brand->save();
-
         return redirect()->route("brand.index")->with("status", "Update successful!");
     }
 
